@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Task Manager</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Task Manager</h1>
+      <p class="sub">A small CRUD app — track, prioritize, and close out work.</p>
+    </header>
+
+    <section class="add-panel">
+      <input id="title" type="text" placeholder="Task title" />
+      <input id="description" type="text" placeholder="Description (optional)" />
+      <select id="priority">
+        <option value="low">Low priority</option>
+        <option value="medium" selected>Medium priority</option>
+        <option value="high">High priority</option>
+      </select>
+      <input id="due_date" type="date" />
+      <button id="addBtn">Add task</button>
+    </section>
+
+    <p id="errorMsg" class="error"></p>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="in_progress">In progress</button>
+      <button class="filter-btn" data-filter="done">Done</button>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+    <p id="emptyMsg" class="empty" hidden>No tasks yet. Add one above.</p>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
